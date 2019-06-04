@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
 }
+
 .userImage {
   height: 50px;
   border-radius: 50%;
@@ -51,4 +52,7 @@
   height: 30px;
   width: 96%;
   margin: 1% 0 5% 1%;
+  border-radius: 3%;
+  border: 1px solid lightgray;
+  padding: 0 0 0 1%;
 }
