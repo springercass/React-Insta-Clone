@@ -8,18 +8,18 @@ const SearchBar = props => {
         <div className="logo">
           <i className="fab fa-instagram" />
         </div>
-        <div>Instagram</div>
+        <h1>Instagram</h1>
       </div>
       <input className="input" placeholder="Search" />
       <div className="rightSearch">
         <div className="rightIcon">
-          <img />
+          <i className="far fa-compass" />
         </div>
         <div className="rightIcon">
-          <img />
+          <i className="far fa-heart" />
         </div>
         <div className="rightIcon">
-          <img />
+          <i className="far fa-user" />
         </div>
       </div>
     </div>

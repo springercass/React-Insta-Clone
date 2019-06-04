@@ -14,8 +14,8 @@ const PostContainer = props => {
       </div>
       <div className="postIcons">
         <div className="postIcon">
-          <img />
-          <img />
+          <i className="far fa-heart" />
+          <i className="far fa-comment" />
         </div>
       </div>
       <div className="likes"> {props.likes} Likes</div>

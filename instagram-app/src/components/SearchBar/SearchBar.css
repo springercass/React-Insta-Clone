@@ -1,8 +1,36 @@
 .searchBar {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 5% 0;
+}
+
+.leftSearch {
+  display: flex;
+  align-items: center;
+}
+
+.leftSearch h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.logo {
+  font-size: 2rem;
+  padding: 0 5% 0 0;
 }
 
 .input {
   text-align: center;
   height: 25%;
+}
+
+.rightSearch {
+  display: flex;
+}
+
+.rightIcon {
+  font-size: 1.5rem;
+  padding: 0 5%;
 }
