@@ -1,0 +1,8 @@
+.searchBar {
+  display: flex;
+}
+
+.input {
+  text-align: center;
+  height: 25%;
+}

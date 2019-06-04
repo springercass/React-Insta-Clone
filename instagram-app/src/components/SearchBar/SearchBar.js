@@ -6,7 +6,7 @@ const SearchBar = props => {
     <div className="searchBar">
       <div className="leftSearch">
         <div className="logo">
-          <i class="fab fa-instagram" />
+          <i className="fab fa-instagram" />
         </div>
         <div>Instagram</div>
       </div>
