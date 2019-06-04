@@ -1,6 +1,6 @@
 .searchBar {
   display: flex;
-  width: 100%;
+  width: 93%;
   justify-content: space-between;
   align-items: baseline;
   margin: 5% 0;
@@ -23,7 +23,10 @@
 
 .input {
   text-align: center;
-  height: 25%;
+  height: 35%;
+  background-color: rgb(248, 244, 244);
+  border: 1px solid lightgray;
+  border-radius: 5%;
 }
 
 .rightSearch {
@@ -32,5 +35,5 @@
 
 .rightIcon {
   font-size: 1.5rem;
-  padding: 0 5%;
+  margin: 0 10%;
 }
