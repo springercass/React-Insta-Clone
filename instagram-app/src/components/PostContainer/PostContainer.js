@@ -18,6 +18,18 @@ const PostContainer = props => {
           <img />
         </div>
       </div>
+      <div className="likes"> {props.likes} Likes</div>
+      <div className="postComment">
+        {props.comments.map(element => (
+          <CommentSection
+            key={element.id}
+            user={element.username}
+            text={element.text}
+          />
+        ))}
+      </div>
+      <div className="time">{props.timestamp}</div>
+      <input className="inputComment" placeholder="Add a comment..." />
     </div>
   );
 };
