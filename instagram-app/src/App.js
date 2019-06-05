@@ -8,9 +8,16 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      filteredPosts: []
     };
   }
+
+  changeHandler = element => {
+    this.setState({
+      [element.target.name]: element.target.value
+    });
+  };
 
   componentDidMount() {
     this.setState({
@@ -18,16 +25,28 @@ class App extends React.Component {
     });
   }
 
+  searchFilter = element => {
+    const filtered = this.state.data.filter(post =>
+      post.username.toLowerCase().includes(element.target.value.toLowerCase())
+    );
+    this.setState({ filteredPosts: filtered });
+  };
+
   render() {
     return (
       <div className="App">
         <header className="Header">
-          <SearchBar />
+          <SearchBar
+            newSearch={this.state.search}
+            searchFilter={this.searchFilter}
+          />
         </header>
         <main>
-          {this.state.data.map(element => (
-            <PostContainer key={element.id} {...element} />
-          ))}
+          <PostContainer
+            data={this.state.data}
+            filteredPosts={this.state.filteredPosts}
+            searchFilter={this.searchFilter}
+          />
         </main>
       </div>
     );

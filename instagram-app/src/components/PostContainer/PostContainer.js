@@ -1,49 +1,65 @@
 import React from "react";
 import "./PostContainer.css";
 import CommentSection from "../CommentSection/CommentSection";
-import PropTypes from "prop-types";
 
-const PostContainer = props => {
-  return (
-    <div className="postContainer">
-      <div className="postRow">
-        <img src={props.thumbnailUrl} className="userImage" />
-        <p className="username">{props.username}</p>
-      </div>
-      <div className="imageArea">
-        <img src={props.imageUrl} className="postImg" />
-      </div>
-      <div className="postIcons">
-        <div className="postIcon1">
-          <i className="far fa-heart" />
-        </div>
-        <div className="postIcon2">
-          <i className="far fa-comment" />
-        </div>
-      </div>
-      <div className="likes"> {props.likes} Likes</div>
-      <div className="postComment">
-        {props.comments.map(element => (
-          <CommentSection
-            key={element.id}
-            user={element.username}
-            text={element.text}
-          />
-        ))}
-      </div>
-      <div className="time">{props.timestamp}</div>
-      <input className="inputComment" placeholder="Add a comment" />
-    </div>
-  );
-};
+class PostContainer extends React.Component {
+  render() {
+    return (
+      <div className="post-container">
+        {this.props.filteredPosts.length === 0
+          ? this.props.data.map(post => {
+              return (
+                <div className="postContainer">
+                  <header className="postRow">
+                    <img
+                      src={post.thumbnailUrl}
+                      alt="thumbnail"
+                      className="userImage"
+                    />
+                    <p className="username">{post.username}</p>
+                  </header>
 
-PostContainer.propTypes = {
-  username: PropTypes.string.isRequired,
-  thumbnailUrl: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-  likes: PropTypes.number.isRequired,
-  timestamp: PropTypes.string.isRequired,
-  comments: PropTypes.array.isRequired
-};
+                  <img src={post.imageUrl} alt={post.id} className="postImg" />
+                  <div className="postIcons">
+                    <div className="postIcon1">
+                      <i className="far fa-heart" />
+                    </div>
+                    <div className="postIcon2">
+                      <i className="far fa-comment" />
+                    </div>
+                  </div>
+                  <section className="likes">{post.likes} likes</section>
+                  <div className="postComment">
+                    <CommentSection
+                      comments={post.comments}
+                      timestamp={post.timestamp}
+                    />
+                  </div>
+                </div>
+              );
+            })
+          : this.props.filteredPosts.map(post => {
+              return (
+                <>
+                  <header>
+                    <img src={post.thumbnailUrl} alt="thumbnail" />
+                    <h3>{post.username}</h3>
+                  </header>
+
+                  <img src={post.imageUrl} alt={post.id} />
+
+                  <section className="likes">{post.likes} likes</section>
+
+                  <CommentSection
+                    comments={post.comments}
+                    timestamp={post.timestamp}
+                  />
+                </>
+              );
+            })}
+      </div>
+    );
+  }
+}
 
 export default PostContainer;
