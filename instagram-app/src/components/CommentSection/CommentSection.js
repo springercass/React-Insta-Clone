@@ -1,5 +1,6 @@
 import React from "react";
 import "./CommentSection.css";
+import PropTypes from "prop-types";
 
 const CommentSection = props => {
   return (
@@ -8,6 +9,11 @@ const CommentSection = props => {
       <div className="userText">{props.text}</div>
     </div>
   );
+};
+
+CommentSection.propTypes = {
+  user: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
 };
 
 export default CommentSection;
