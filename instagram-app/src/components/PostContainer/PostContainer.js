@@ -41,7 +41,7 @@ class PostContainer extends React.Component {
           : this.props.filteredPosts.map(post => {
               return (
                 <>
-                  <header>
+                  <header className="postRow">
                     <img
                       src={post.thumbnailUrl}
                       alt="thumbnail"
@@ -50,7 +50,7 @@ class PostContainer extends React.Component {
                     <p className="username">{post.username}</p>
                   </header>
 
-                  <img src={post.imageUrl} alt={post.id} />
+                  <img src={post.imageUrl} alt={post.id} className="postImg" />
 
                   <section className="likes">{post.likes} likes</section>
 
