@@ -14,6 +14,7 @@ class Login extends React.Component {
   };
 
   submitLogin = element => {
+    element.preventDefault();
     const user = this.state.username;
     localStorage.setItem("user", user);
     window.location.reload();
@@ -40,7 +41,7 @@ class Login extends React.Component {
           value={this.state.password}
           onChange={this.inputChange}
         />
-        <button className="loginButton" onClick={this.inputChange.loginSubmit}>
+        <button className="loginButton" onClick={this.submitLogin}>
           Log In
         </button>
       </form>

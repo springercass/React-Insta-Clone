@@ -51,4 +51,5 @@ class PostsPage extends React.Component {
     );
   }
 }
+
 export default PostsPage;

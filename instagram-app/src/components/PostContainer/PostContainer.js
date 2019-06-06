@@ -42,8 +42,12 @@ class PostContainer extends React.Component {
               return (
                 <>
                   <header>
-                    <img src={post.thumbnailUrl} alt="thumbnail" />
-                    <h3>{post.username}</h3>
+                    <img
+                      src={post.thumbnailUrl}
+                      alt="thumbnail"
+                      className="userImage"
+                    />
+                    <p className="username">{post.username}</p>
                   </header>
 
                   <img src={post.imageUrl} alt={post.id} />

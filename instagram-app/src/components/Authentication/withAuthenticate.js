@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import PostsPage from "../PostContainer/PostsPage";
-import LoginPage from "../Login/LoginPage";
+import React from "react";
 
-const withAuthenticate = PostsPage => LoginPage =>
+const withAuthenticate = Component1 => Component2 =>
   class extends React.Component {
     constructor(props) {
       super(props);
@@ -18,8 +16,8 @@ const withAuthenticate = PostsPage => LoginPage =>
       }
     }
     render() {
-      if (this.state.loggedIn) return <PostsPage />;
-      return <LoginPage />;
+      if (this.state.loggedIn) return <Component1 />;
+      return <Component2 />;
     }
   };
 

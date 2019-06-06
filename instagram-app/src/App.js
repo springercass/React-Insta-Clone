@@ -1,12 +1,9 @@
 import React from "react";
 import "./App.css";
-import dummyData from "./dummy-data.js";
-import SearchBar from "./components/SearchBar/SearchBar";
-import PostContainer from "./components/PostContainer/PostContainer";
 import PostsPage from "./components/PostContainer/PostsPage";
 import withAuthenticate from "./components/Authentication/withAuthenticate";
-import LoginPage from "./components/Login/LoginPage";
-
+import Login from "./components/Login/LoginPage";
+const AuthenticateComponent = withAuthenticate(PostsPage)(Login);
 class App extends React.Component {
   constructor() {
     super();
@@ -26,7 +23,5 @@ class App extends React.Component {
     );
   }
 }
-
-const AuthenticateComponent = withAuthenticate(PostsPage)(LoginPage);
 
 export default App;
