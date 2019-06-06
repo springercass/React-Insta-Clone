@@ -1,11 +1,9 @@
 import React from "react";
-import "./App.css";
-import dummyData from "./dummy-data.js";
-import SearchBar from "./components/SearchBar/SearchBar";
-import PostContainer from "./components/PostContainer/PostContainer";
-import PostsPage from "./components/PostContainer/PostsPage";
+import SearchBar from "../SearchBar/SearchBar";
+import PostContainer from "./PostContainer";
+import dummyData from "../../dummy-data.js";
 
-class App extends React.Component {
+class PostsPage extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -36,12 +34,21 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <header className="Header">
+          <SearchBar
+            newSearch={this.state.search}
+            searchFilter={this.searchFilter}
+          />
+        </header>
         <main>
-          <PostsPage />
+          <PostContainer
+            data={this.state.data}
+            filteredPosts={this.state.filteredPosts}
+            searchFilter={this.searchFilter}
+          />
         </main>
       </div>
     );
   }
 }
-
-export default App;
+export default PostsPage;
