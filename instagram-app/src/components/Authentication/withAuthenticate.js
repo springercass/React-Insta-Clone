@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PostsPage from "../PostContainer/PostsPage";
 import LoginPage from "../Login/LoginPage";
 
-const withAuthenticate = App =>
+const withAuthenticate = PostsPage => LoginPage =>
   class extends React.Component {
     constructor(props) {
       super(props);

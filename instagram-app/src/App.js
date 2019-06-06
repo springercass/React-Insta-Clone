@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import PostContainer from "./components/PostContainer/PostContainer";
 import PostsPage from "./components/PostContainer/PostsPage";
 import withAuthenticate from "./components/Authentication/withAuthenticate";
+import LoginPage from "./components/Login/LoginPage";
 
 class App extends React.Component {
   constructor() {
@@ -19,11 +20,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <main>
-          <PostsPage />
+          <AuthenticateComponent />
         </main>
       </div>
     );
   }
 }
+
+const AuthenticateComponent = withAuthenticate(PostsPage)(LoginPage);
 
 export default App;
