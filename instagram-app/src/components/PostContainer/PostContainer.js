@@ -1,6 +1,7 @@
 import React from "react";
 //import "./PostContainer.scss";
 import CommentSection from "../CommentSection/CommentSection";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const PostContainerSCSS = styled.div`
@@ -63,14 +64,14 @@ class PostContainer extends React.Component {
 
                   <PostImage src={post.imageUrl} alt={post.id} />
                   <PostIcons>
-                    <PostIcon1>
+                    <PostIcon1 onClick={this.addLike}>
                       <i className="far fa-heart" />
                     </PostIcon1>
                     <PostIcon2>
                       <i className="far fa-comment" />
                     </PostIcon2>
                   </PostIcons>
-                  <Likes>{post.likes} likes</Likes>
+                  <Likes>{post.likes} Likes</Likes>
                   <div className="postComment">
                     <CommentSection
                       comments={post.comments}
@@ -103,5 +104,14 @@ class PostContainer extends React.Component {
     );
   }
 }
+
+PostContainer.propTypes = {
+  username: PropTypes.string.isRequired,
+  thumbnailUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
+  timestamp: PropTypes.string.isRequired,
+  comments: PropTypes.array.isRequired
+};
 
 export default PostContainer;
