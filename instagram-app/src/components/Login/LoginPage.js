@@ -2,11 +2,12 @@ import React from "react";
 //import "./LoginPage.scss";
 import styled from "styled-components";
 
-const LoginForm = styled.form`
+const LoginWrap = styled.form`
   width: 50%;
   border: 1px solid gray;
   margin: 30% auto;
   padding: 10%;
+  display: ${props => props.display};
 `;
 
 const LoginHeader = styled.header`
@@ -52,7 +53,7 @@ class Login extends React.Component {
     };
   }
 
-  inputChange = element => {
+  handleInputChange = element => {
     this.setState({ [element.target.name]: element.target.value });
   };
 
@@ -65,7 +66,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <LoginForm>
+      <LoginWrap>
         <LoginHeader>
           <Welcome>Instagram</Welcome>
           <LoginTitle>Welcome, Please Login</LoginTitle>
@@ -76,18 +77,18 @@ class Login extends React.Component {
             placeholder="User Name"
             name="username"
             value={this.state.username}
-            onChange={this.inputChange}
+            onChange={this.handleInputChange}
           />
           <LoginFormInput
             type="password"
             placeholder="Password"
             name="password"
             value={this.state.password}
-            onChange={this.inputChange}
+            onChange={this.handleInputChange}
           />
           <LoginButton onClick={this.submitLogin}>Log In</LoginButton>
         </TextForm>
-      </LoginForm>
+      </LoginWrap>
     );
   }
 }

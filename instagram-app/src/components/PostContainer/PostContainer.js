@@ -4,13 +4,19 @@ import CommentSection from "../CommentSection/CommentSection";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const PostContainerSCSS = styled.div`
+const PostWrap = styled.div`
   width: 100%;
+  border-left: 0.5px solid #d3d3d3;
+  border-right: 0.5px solid #d3d3d3;
+  border-bottom: 0.5px solid #d3d3d3;
+  display: ${props => props.displayProp};
 `;
 
 const PostRow = styled.header`
   display: flex;
   align-items: center;
+  padding: 3% 0 0 0;
+  border-top: 0.5px solid #d3d3d3;
 `;
 
 const UserImage = styled.img`
@@ -50,13 +56,25 @@ const Likes = styled.section`
 `;
 
 class PostContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      likes: props.likes
+    };
+  }
+
+  addLike = () => {
+    let likes = this.state.likes + 1;
+    this.setState({ likes });
+  };
+
   render() {
     return (
-      <PostContainerSCSS>
+      <PostWrap>
         {this.props.filteredPosts.length === 0
           ? this.props.data.map(post => {
               return (
-                <PostContainerSCSS>
+                <PostWrap>
                   <PostRow>
                     <UserImage src={post.thumbnailUrl} alt="thumbnail" />
                     <Username>{post.username}</Username>
@@ -78,7 +96,7 @@ class PostContainer extends React.Component {
                       timestamp={post.timestamp}
                     />
                   </div>
-                </PostContainerSCSS>
+                </PostWrap>
               );
             })
           : this.props.filteredPosts.map(post => {
@@ -100,7 +118,7 @@ class PostContainer extends React.Component {
                 </>
               );
             })}
-      </PostContainerSCSS>
+      </PostWrap>
     );
   }
 }

@@ -2,12 +2,15 @@ import React from "react";
 //import "./SearchBar.scss";
 import styled from "styled-components";
 
-const SearchBarSCSS = styled.div`
+const SearchBarWrap = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: baseline;
   margin: 3% 0;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid lightgray;
+  display: ${props => props.display};
 `;
 
 const LeftSearch = styled.div`
@@ -39,13 +42,13 @@ const RightSearch = styled.div`
 
 const RightIcon = styled.div`
   font-size: 1.5rem;
-  width: 40px;
+  padding: 0 0 0 15px;
 `;
 
 class SearchBar extends React.Component {
   render() {
     return (
-      <SearchBarSCSS>
+      <SearchBarWrap>
         <LeftSearch>
           <Logo>
             <i className="fab fa-instagram" />
@@ -70,7 +73,7 @@ class SearchBar extends React.Component {
             <i className="far fa-user" />
           </RightIcon>
         </RightSearch>
-      </SearchBarSCSS>
+      </SearchBarWrap>
     );
   }
 }
