@@ -1,5 +1,48 @@
 import React from "react";
-import "./LoginPage.css";
+//import "./LoginPage.scss";
+import styled from "styled-components";
+
+const LoginWrap = styled.form`
+  width: 50%;
+  border: 1px solid gray;
+  margin: 30% auto;
+  padding: 10%;
+  display: ${props => props.display};
+`;
+
+const LoginHeader = styled.header`
+  text-align: center;
+`;
+
+const Welcome = styled.div`
+  font-size: 2rem;
+  font-weight: bolder;
+`;
+
+const LoginTitle = styled.div`
+  color: navy;
+  padding: 2% 0;
+  font-size: 1.5rem;
+`;
+
+const TextForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const LoginFormInput = styled.input`
+  text-align: left;
+  width: 75%;
+  margin: 5% 0 0 12.5%;
+`;
+
+const LoginButton = styled.button`
+  width: 25%;
+  margin: 5% 0 0 37.5%;
+  background: white;
+  border: 1px solid gray;
+  height: 30px;
+`;
 
 class Login extends React.Component {
   constructor(props) {
@@ -10,7 +53,7 @@ class Login extends React.Component {
     };
   }
 
-  inputChange = element => {
+  handleInputChange = element => {
     this.setState({ [element.target.name]: element.target.value });
   };
 
@@ -23,33 +66,29 @@ class Login extends React.Component {
 
   render() {
     return (
-      <form className="loginForm">
-        <header>
-          <div className="welcome">Instagram</div>
-          <div className="loginTitle">Welcome, Please Login</div>
-        </header>
-        <div className="textForm">
-          <input
+      <LoginWrap>
+        <LoginHeader>
+          <Welcome>Instagram</Welcome>
+          <LoginTitle>Welcome, Please Login</LoginTitle>
+        </LoginHeader>
+        <TextForm>
+          <LoginFormInput
             type="text"
             placeholder="User Name"
-            className="loginFormInput"
             name="username"
             value={this.state.username}
-            onChange={this.inputChange}
+            onChange={this.handleInputChange}
           />
-          <input
+          <LoginFormInput
             type="password"
             placeholder="Password"
-            className="loginFormInput"
             name="password"
             value={this.state.password}
-            onChange={this.inputChange}
+            onChange={this.handleInputChange}
           />
-          <button className="loginButton" onClick={this.submitLogin}>
-            Log In
-          </button>
-        </div>
-      </form>
+          <LoginButton onClick={this.submitLogin}>Log In</LoginButton>
+        </TextForm>
+      </LoginWrap>
     );
   }
 }

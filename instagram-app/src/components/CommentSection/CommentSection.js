@@ -1,5 +1,29 @@
 import React from "react";
-import "./CommentSection.css";
+//import "./CommentSection.scss";
+import styled from "styled-components";
+
+const Time = styled.div`
+  padding: 0 0 0 1%;
+  color: gray;
+`;
+
+const InputComment = styled.input`
+  height: 30px;
+  width: 96%;
+  margin: 1% 0 5% 1%;
+  border-radius: 3%;
+  border: 1px solid lightgray;
+  padding: 0 0 0 1%;
+`;
+
+const CommentSec = styled.div`
+  display: flex;
+`;
+
+const UserComment = styled.div`
+  font-weight: bolder;
+  padding: 0 1% 1% 1%;
+`;
 
 class CommentSection extends React.Component {
   state = {
@@ -31,19 +55,18 @@ class CommentSection extends React.Component {
       <div className="comment-section">
         {this.state.comments.map(comment => {
           return (
-            <div className="commentSec">
-              <div className="user">{comment.username}</div>
+            <CommentSec>
+              <UserComment>{comment.username}</UserComment>
               <div>{comment.text}</div>
-            </div>
+            </CommentSec>
           );
         })}
 
-        <div className="time">{this.props.timestamp}</div>
+        <Time>{this.props.timestamp}</Time>
         <form onSubmit={this.addNewComment}>
-          <input
+          <InputComment
             type="text"
             name="newComment"
-            className="inputComment"
             value={this.state.newComment}
             onChange={this.changeHandler}
             placeholder="Add a comment"
