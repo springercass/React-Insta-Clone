@@ -1,0 +1,58 @@
+.postContainer {
+  width: 100%;
+}
+
+.postRow {
+  display: flex;
+  align-items: center;
+}
+
+.userImage {
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 2% 0 2%;
+}
+
+.username {
+  font-weight: bold;
+  color: rgb(16, 16, 73);
+}
+
+.postImg {
+  width: 100%;
+  margin: 2% 0 0 0;
+}
+
+.postIcons {
+  display: flex;
+}
+
+.postIcon1 {
+  font-size: 1.2rem;
+  padding: 0 1%;
+}
+
+.postIcon2 {
+  font-size: 1.2rem;
+  transform: scaleX(-1);
+}
+
+.likes {
+  padding: 1% 0 1% 1%;
+  font-weight: bold;
+  color: rgb(16, 16, 73);
+}
+
+.time {
+  padding: 0 0 0 1%;
+  color: gray;
+}
+
+.inputComment {
+  height: 30px;
+  width: 96%;
+  margin: 1% 0 5% 1%;
+  border-radius: 3%;
+  border: 1px solid lightgray;
+  padding: 0 0 0 1%;
+}

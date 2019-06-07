@@ -1,5 +1,5 @@
 import React from "react";
-import "./CommentSection.css";
+import "./CommentSection.scss";
 
 class CommentSection extends React.Component {
   state = {
