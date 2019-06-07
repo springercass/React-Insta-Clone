@@ -83,18 +83,14 @@ class PostContainer extends React.Component {
           : this.props.filteredPosts.map(post => {
               return (
                 <>
-                  <header className="postRow">
-                    <img
-                      src={post.thumbnailUrl}
-                      alt="thumbnail"
-                      className="userImage"
-                    />
-                    <p className="username">{post.username}</p>
-                  </header>
+                  <PostRow>
+                    <UserImage src={post.thumbnailUrl} alt="thumbnail" />
+                    <Username>{post.username}</Username>
+                  </PostRow>
 
-                  <img src={post.imageUrl} alt={post.id} className="postImg" />
+                  <PostImage src={post.imageUrl} alt={post.id} />
 
-                  <section className="likes">{post.likes} likes</section>
+                  <Likes>{post.likes} likes</Likes>
 
                   <CommentSection
                     comments={post.comments}
